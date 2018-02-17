@@ -18,6 +18,39 @@ Maybe. If not, I'll change it. Actually, I probably won't. But maybe.
 
 Simply check out this project and import it into Android Studio! Gradle and Android Studio should take care of the rest!
 
+### As A Dependency
+
+In your root `build.gradle`:
+
+```
+allprojects {
+        repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+        }
+}
+```
+
+In your app `build.gradle`:
+
+```
+depencencies {
+        ...
+        implementation 'com.github.wardellbagby:FixedQueue:0.1.0'
+}
+```
+
+### Using
+
+```kotlin
+    //Creates a FixedQueue with a max size of 500.
+    val queue = FixedQueue<Int>(500)
+    (0..1000).forEach {
+        queue.offer(it)
+    }
+    println(queue.size) //Prints out 500
+```
+
 ### Building
 
 You can build this lib using:
